@@ -1,0 +1,85 @@
+{% extends 'sellerheader.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Add Product</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Add Product</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Add Product</span></h2>
+        </div>
+        <div class="row px-xl-5">
+            <div class="col-lg-7 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    {% if msg %}
+                        <b style="color: blue;">{{msg}}</b>
+                    {% endif %}
+                    <form method="post" action="{% url 'selleraddproduct' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="control-group">
+                            <select name="product_category" id="name">
+                               <option>---Select Product---</option>
+                               <option value="men">Men</option>
+                               <option value="women">women</option>
+                               <option value="kid">Kids</option>
+                           </select>   
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="fname" placeholder="Product Name"
+                                required="required" name="product_name">   
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="lname" placeholder="Product Price" required="required" name="product_price">
+                        <div class="control-group">
+                            <textarea class="form-control" rows="6" id="address" placeholder="Product Description"
+                                required="required" name="product_desc"></textarea>
+                        </div>
+                        <div class="control-group">
+                           <select  name="product_size" id="name">
+                               <option>---Select Product Size---</option>
+                               <option value="s">S</option>
+                               <option value="m">M</option>
+                               <option value="l">L</option>
+                               <option value="xl">XL</option>
+                               <option value="xxl">XXL</option>
+                               <option value="xxl">XXL</option>
+                           </select>   
+                        <div class="control-group">
+                            <input type="file" class="form-control" required="required" id="profilepic" name="product_image" >
+                        </div>
+                        <div>
+                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Add Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('shop/',views.shop,name='shop'),
+    path('cart/',views.cart,name='cart'),
+    path('detail/',views.detail,name='detail'),
+    path('checkout/',views.checkout,name='checkout'),
+    path('contact/',views.contact,name='contact'),
+    path('login/',views.login,name='login'),
+    path('register/',views.register,name='register'),
+    path('logout/',views.logout,name='logout'),
+    path('changepassword/',views.changepassword,name='changepassword'),
+    path('sellerindex/',views.sellerindex,name='sellerindex'),
+    path('sellerchangepassword/',views.sellerchangepassword,name='sellerchangepassword'),
+    path('selleraddproduct/',views.selleraddproduct,name='selleraddproduct'),
+    path('sellerviewproduct/',views.sellerviewproduct,name='sellerviewproduct'),
+    path('sellerproductdetail/<int:pk>/',views.sellerproductdetail,name='sellerproductdetail'),
+    path('sellereditproduct/<int:pk>/',views.sellereditproduct,name='sellereditproduct'),
+    path('sellerdeleteproduct/<int:pk>/',views.sellerdeleteproduct,name='sellerdeleteproduct'),
+    path('productdetail/<int:pk>/',views.detail,name='productdetail'),
+    path('addtowishlist/<int:pk>/',views.addtowishlist,name='addtowishlist'),
+    path('wishlist/',views.wishlist,name='wishlist'),
+    path('removefromwishlist/<int:pk>',views.removefromwishlist,name='removefromwishlist'),
+    path('addtocart/<int:pk>/',views.addtocart,name='addtocart'),
+    path('cart/',views.cart,name='cart'),
+    path('removefromcart/<int:pk>',views.removefromcart,name='removefromcart'),
+    path('change-qty/',views.change_qty,name='change-qty'),
+    path('search/',views.search,name='search'),
+    path('products500/',views.products500,name='products500'),
+    path('products1000/',views.products1000,name='products1000'),
+    path('products1001/',views.products1001,name='products1001'),
+    path('pay/', views.initiate_payment, name='pay'),
+    path('callback/', views.callback, name='callback'),
+    path('myorder/', views.myorder, name='myorder'),
+    
+]
